@@ -1,0 +1,15 @@
+{{#partial "content"}}
+
+    <h1> HEROES!</h1>
+
+    {{#if heroes}}
+        {{#each heroes }}
+            <p><b>{{ name }}:</b></p>
+            <p>Special Power: {{ specialPower }}</p>
+        {{/each}}
+    {{else}}
+        <p>No Heroes!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
