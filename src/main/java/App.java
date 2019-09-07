@@ -28,9 +28,17 @@ public class App {
             int age =  Integer.parseInt(req.queryParams("age"));
             String strength = req.queryParams("strength");
             String weaknesses = req.queryParams("weaknesses");
-            Hero newHero = new Hero(name,age,strength,weaknesses);
+            Hero newHero = new Hero(name,age,strength,weaknesses, overallRating);
             res.redirect("/");
             return null;
+        }, new HandlebarsTemplateEngine());
+
+        get("/heroes/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTaskToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
+            Hero foundHero = Hero.findById(idOfTaskToFind); //use it to find task
+            model.put("hero", foundHero); //add it to model for template to display
+            return new ModelAndView(model, "hero-detail.hbs"); //individual task page.
         }, new HandlebarsTemplateEngine());
     }
 }

@@ -4,8 +4,7 @@
 
     {{#if heroes}}
         {{#each heroes }}
-            <p><b>{{ name }}:</b></p>
-            <p>Special Power: {{ specialPower }}</p>
+            <p><b>{{ name }}</b> - <a href="/heroes/{{id}}">View Hero</a></p>
         {{/each}}
     {{else}}
         <p>No Heroes!</p>
