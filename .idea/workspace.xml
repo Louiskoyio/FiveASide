@@ -6,14 +6,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/models/Hero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/models/Squad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/models/HeroTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/models/HeroTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/hero-detail.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/hero-detail.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/hero-form.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/hero-form.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hero-detail.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hero-detail.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hero-form.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hero-form.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/dao/Sql2oHeroDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/Sql2oHeroDaoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/models/HeroTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/HeroTest.java" afterDir="false" />
     </list>
@@ -27,6 +35,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -72,7 +90,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Run_Sql2oHeroDaoTest_addingCourseSetsId">
+  <component name="RunManager" selected="JUnit.Run_Sql2oHeroDaoTest_existingHeroesCanBeFoundById">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="heroes.main" />
@@ -102,8 +120,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run_Sql2oHeroDaoTest_existingHeroesCanBeFoundById" type="JUnit" factoryName="JUnit">
+      <module name="heroes.test" />
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.Sql2oHeroDaoTest" />
+      <option name="METHOD_NAME" value="existingHeroesCanBeFoundById" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.Run_Sql2oHeroDaoTest_existingHeroesCanBeFoundById" />
       <item itemvalue="JUnit.Run_HeroTest_NewHeroObjectGetsCorrectlyCreated_true" />
       <item itemvalue="JUnit.Run_Sql2oHeroDaoTest_addingCourseSetsId" />
     </list>

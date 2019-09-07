@@ -1,6 +1,5 @@
 package dao;
 import models.Hero;
-import java.sql.Connection;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
@@ -32,7 +31,7 @@ public class Sql2oHeroDaoTest {
         Hero hero = createTestHero();
         int originalTaskId = hero.getId();
         heroDao.add(hero);
-        assertNotEquals(originalTaskId, hero.getId()); 
+        assertNotEquals(originalTaskId, hero.getId());
     }
 
     @Test

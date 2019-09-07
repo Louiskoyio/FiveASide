@@ -39,6 +39,7 @@ public class Hero {
     public void setId(int id) { this.id = id; }
 
     public void setName(String name) { this.name = name; }
+    public void setSquadId(int squadId) { this.squadId = squadId; }
 
     @Override
     public boolean equals(Object o) {
@@ -46,12 +47,16 @@ public class Hero {
         if (o == null || getClass() != o.getClass()) return false;
         Hero hero = (Hero) o;
         return id == hero.id &&
+                age == hero.age &&
                 overallRating == hero.overallRating &&
-                Objects.equals(name, hero.name);
+                squadId == hero.squadId &&
+                Objects.equals(name, hero.name) &&
+                Objects.equals(specialPower, hero.specialPower) &&
+                Objects.equals(weakness, hero.weakness);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, overallRating);
+        return Objects.hash(id, name, age, specialPower, weakness, overallRating, squadId);
     }
 }

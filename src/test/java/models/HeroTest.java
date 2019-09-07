@@ -13,7 +13,7 @@ class HeroTest {
 
     @AfterEach
     public void tearDown() throws Exception {
-        Hero.clearAllHeroes(); // clear out all the heroes before each test
+       // Hero.clearAllHeroes(); // clear out all the heroes before each test
     }
 
     @Test
