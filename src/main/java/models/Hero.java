@@ -15,13 +15,14 @@ public class Hero {
     private static ArrayList<Hero> instances = new ArrayList<>();
 
 
-    public Hero(int id , String name, int age, String specialPower, String weakness, int squadId) {
-        this.id = id;
+    public Hero( String name, int age, String specialPower, String weakness) {
         this.name = name;
         this.age = age;
         this.specialPower = specialPower;
         this.weakness = weakness;
-        this.squadId = squadId;
+        this.squadId = 0;
+        instances.add(this);
+        this.id = instances.size();
 
     }
 

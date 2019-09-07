@@ -17,5 +17,20 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/heroes/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/heroes", (req, res) -> { //URL to make new task on POST route
+            Map<String, Object> model = new HashMap<>();
+            String name = req.queryParams("name");
+            int age =  Integer.parseInt(req.queryParams("age"));
+            String strength = req.queryParams("strength");
+            String weaknesses = req.queryParams("weaknesses");
+            Hero newHero = new Hero(name,age,strength,weaknesses);
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
     }
 }
