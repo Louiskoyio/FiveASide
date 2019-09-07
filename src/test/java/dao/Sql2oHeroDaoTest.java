@@ -43,4 +43,15 @@ public class Sql2oHeroDaoTest {
     }
 
 
+    @Test
+    public void updateChangesTaskContent() throws Exception {
+        String initialName = "Batman";
+        Hero hero = createTestHero();
+        heroDao.add(hero);
+        heroDao.update(hero.getId(),"Batmane", 23,"Wealth","bats", 90);
+        Hero updatedTask = heroDao.findById(hero.getId()); //why do I need to refind this?
+        assertNotEquals(initialName, updatedTask.getName());
+    }
+
+
 }
