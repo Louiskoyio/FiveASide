@@ -24,6 +24,6 @@ class HeroTest {
 
 
     public Hero createTestHero(){
-        return new Hero("Glass",23,"Invisibility","bananas", 90);
+        return new Hero("Glass",23,"Invisibility","bananas", 90,1);
     }
 }

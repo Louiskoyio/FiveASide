@@ -12,13 +12,13 @@ public class Hero {
     private int squadId;
 
 
-    public Hero(String name, int age, String specialPower, String weakness, int overallRating) {
+    public Hero(String name, int age, String specialPower, String weakness, int overallRating, int squadId) {
         this.name = name;
         this.age = age;
         this.specialPower = specialPower;
         this.weakness = weakness;
         this.overallRating = overallRating;
-        this.squadId = 0;
+        this.squadId = squadId;
     }
 
 

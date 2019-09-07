@@ -10,6 +10,7 @@ import org.sql2o.*;
 public class Sql2oSquadDaoTest {
 
     private Sql2oSquadDao squadDao;
+    private Sql2oHeroDao heroDao;
     private Connection conn;
 
     public Squad createTestSquad(){
@@ -35,6 +36,22 @@ public class Sql2oSquadDaoTest {
         int originalTaskId = squad.getId();
         squadDao.add(squad);
         assertNotEquals(originalTaskId, squad.getId());
+    }
+
+    @Test
+    public void getAllHeroesInSquadsCorrectly() throws Exception {
+        Squad squad = createTestSquad();
+        squadDao.add(squad);
+        int squadId = squad.getId();
+        Hero newHero = new Hero("Batman",23,"Wealth","bats", 90,squadId);
+        Hero otherHero = new Hero("Spiderman",23,"Spider Powers","bats", 85, squadId);
+        Hero thirdHero = new Hero("Antman",23,"Size","bats", 88, squadId);
+        heroDao.add(newHero);
+        heroDao.add(otherHero); //we are not adding task 3 so we can test things precisely.
+        assertEquals(2, squadDao.getAllHeroesInSquad(squadId));
+        assertTrue(squadDao.getAllHeroesInSquad(squadId).contains(newHero));
+        assertTrue(squadDao.getAllHeroesInSquad(squadId).contains(otherHero));
+        assertFalse(squadDao.getAllHeroesInSquad(squadId).contains(thirdHero)); //things are accurate!
     }
 
 }

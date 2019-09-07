@@ -1,9 +1,12 @@
 package dao;
+import models.Hero;
 import models.Squad;
 
 import java.util.List;
 
 public interface SquadDao {
+
+    List<Hero> getAllHeroesInSquad(int squadId);
 
     // LIST
     List<Squad> getAll();
@@ -11,6 +14,5 @@ public interface SquadDao {
     // CREATE
     void add(Squad squad);
 
-    // READ
-    Squad findById(int id);
+
 }

@@ -9,3 +9,9 @@ CREATE TABLE IF NOT EXISTS heroes (
  squad_id NUMBER,
  overall_rating NUMBER
  );
+
+CREATE TABLE IF NOT EXISTS squads (
+  id int PRIMARY KEY auto_increment,
+  name VARCHAR,
+  objective VARCHAR
+);

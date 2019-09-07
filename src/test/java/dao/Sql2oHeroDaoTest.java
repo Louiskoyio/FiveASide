@@ -11,7 +11,7 @@ public class Sql2oHeroDaoTest {
     private Connection conn; //must be sql2o class conn
 
     public Hero createTestHero(){
-        return new Hero("Batman",23,"Wealth","bats", 90);
+        return new Hero("Batman",23,"Wealth","bats", 90,1);
     }
     @BeforeEach
     public void setUp() throws Exception {
@@ -34,6 +34,14 @@ public class Sql2oHeroDaoTest {
         assertNotEquals(originalTaskId, hero.getId());
     }
 
+    @Test
+    public void squadIdIsReturnedCorrectly() throws Exception {
+        Hero task = createTestHero();
+        int originalSquadId = task.getSquadId();
+        heroDao.add(task);
+        assertEquals(originalSquadId, heroDao.findById(task.getId()).getSquadId());
+    }
+
 /*
     @Test
     public void existingHeroesCanBeFoundById() throws Exception {
@@ -51,8 +59,8 @@ public class Sql2oHeroDaoTest {
         Hero hero = createTestHero();
         heroDao.add(hero);
         heroDao.assignSquad(hero.getId(),1);
-        Hero updatedTask = heroDao.findById(hero.getId());
-        assertNotEquals(initialSquad, updatedTask.getName());
+        Hero updatedHeroSquad = heroDao.findById(hero.getId());
+        assertNotEquals(hero.getSquadId(), updatedHeroSquad.getSquadId());
     }
 
 

@@ -12,7 +12,8 @@ public class Sql2oSquadDao implements SquadDao{
 
     private final Sql2o sql2o;
 
-    public Sql2oHeroDao(Sql2o sql2o) { this.sql2o = sql2o; }
+    public Sql2oSquadDao(Sql2o sql2o) { this.sql2o = sql2o; }
+
     @Override
     public void add(Squad squad) {
         String sql = "INSERT INTO squads (name,objective) VALUES (:name,:objective)"; //raw sql
@@ -24,6 +25,15 @@ public class Sql2oSquadDao implements SquadDao{
             squad.setId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex); //oops we have an error!
+        }
+    }
+
+    @Override
+    public List<Hero> getAllHeroesInSquad(int squadId) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM tasks WHERE categoryId = :categoryId")
+                    .addParameter("categoryId", squadId)
+                    .executeAndFetch(Hero.class);
         }
     }
 
