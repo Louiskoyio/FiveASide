@@ -11,6 +11,9 @@ public class Sql2oHeroDaoTest {
     private Sql2oHeroDao heroDao;
     private Connection conn; //must be sql2o class conn
 
+    public Hero createTestHero(){
+        return new Hero("Batman",23,"Wealth","bats", 90);
+    }
     @BeforeEach
     public void setUp() throws Exception {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
@@ -23,4 +26,22 @@ public class Sql2oHeroDaoTest {
     public void tearDown() throws Exception {
         conn.close();
     }
+
+    @Test
+    public void addingCourseSetsId() throws Exception {
+        Hero hero = createTestHero();
+        int originalTaskId = hero.getId();
+        heroDao.add(hero);
+        assertNotEquals(originalTaskId, hero.getId()); 
+    }
+
+    @Test
+    public void existingHeroesCanBeFoundById() throws Exception {
+        Hero hero = createTestHero();
+        heroDao.add(hero);
+        Hero foundHero = heroDao.findById(hero.getId());
+        assertEquals(hero, foundHero);
+    }
+
+
 }

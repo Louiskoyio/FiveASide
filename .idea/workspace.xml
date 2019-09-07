@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f898a16-edbb-4d26-bd3c-c170d724be18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/models/Hero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/models/Squad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/Sql2oHeroDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/Sql2oHeroDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/HeroTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/HeroTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +72,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.Run_Sql2oHeroDaoTest_addingCourseSetsId">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="heroes.main" />
@@ -78,9 +91,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run_Sql2oHeroDaoTest_addingCourseSetsId" type="JUnit" factoryName="JUnit">
+      <module name="heroes.test" />
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.Sql2oHeroDaoTest" />
+      <option name="METHOD_NAME" value="addingCourseSetsId" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.Run_HeroTest_NewHeroObjectGetsCorrectlyCreated_true" />
       <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.Run_HeroTest_NewHeroObjectGetsCorrectlyCreated_true" />
+      <item itemvalue="JUnit.Run_Sql2oHeroDaoTest_addingCourseSetsId" />
     </list>
     <recent_temporary>
       <list>
