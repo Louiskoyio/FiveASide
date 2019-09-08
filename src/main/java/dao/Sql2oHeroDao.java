@@ -46,13 +46,12 @@ public class Sql2oHeroDao implements HeroDao {
 
 
     @Override
-    public void assignSquad(int id, int newSquadId){
+    public void assignSquad(int id, int squadId){
         String sql = "UPDATE heroes SET (squad_id) = (:squadId) WHERE id=:id;";
         try(Connection con = sql2o.open()){
             con.createQuery(sql)
                     .addParameter("id", id)
-                    .addParameter("squadId", newSquadId)
-                    .throwOnMappingFailure(false)
+                    .addParameter("squadId", squadId)
                     .executeUpdate();
         } catch (Sql2oException ex) {
             System.out.println("SQUAD NOT ASSIGNED:"+ex);
