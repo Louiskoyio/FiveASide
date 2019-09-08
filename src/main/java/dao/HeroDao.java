@@ -16,5 +16,7 @@ public interface HeroDao {
     // UPDATE
     void assignSquad(int id, int squadId);
 
+    void dropFromSquad(int id);
+
 
 }

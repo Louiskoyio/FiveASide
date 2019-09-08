@@ -68,6 +68,15 @@ public class App {
             return new ModelAndView(model , "squads.hbs"); //individual task page.
         }, new HandlebarsTemplateEngine());
 
+        get("/squads/:squad_id/drop/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int heroId = Integer.parseInt(req.params("id"));
+            heroDao.dropFromSquad(heroId);
+            List<Squad> squads = squadDao.getAll();
+            model.put("squads", squads);
+            return new ModelAndView(model , "squads.hbs"); //individual task page.
+        }, new HandlebarsTemplateEngine());
+
 
         get("/heroes/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();

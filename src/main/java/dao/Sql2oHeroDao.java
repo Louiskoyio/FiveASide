@@ -58,4 +58,15 @@ public class Sql2oHeroDao implements HeroDao {
         }
     }
 
+    @Override
+    public void dropFromSquad(int id){
+        String sql = "UPDATE heroes SET (squad_id) = 0 WHERE id=:id;";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println("SQUAD NOT ASSIGNED:"+ex);
+        }
+    }
 }

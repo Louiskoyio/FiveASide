@@ -4,11 +4,11 @@
 
     <p>Objective: {{squad.objective}}</p>
 
-    <h1>MEMBERS:</h1>
+    <h3>MEMBERS:</h3>
     <ul>
         {{#if heroesInSquad}}
             {{#each heroesInSquad }}
-                <li><a><b>{{ name }}</b></a> - Overall: {{ overallRating }} </li>
+                <li><a><b>{{ name }}</b></a> - Overall: {{ overallRating }} <a href="/squads/{{squad.id}}/drop/{{id}}"><button>Drop From squad</button></a></li>
             {{/each}}
         {{else}}
             <li>No Members Yet!</li>
@@ -22,7 +22,7 @@
 {{/partial}}
 
 {{#partial "footer-content"}}
-
+    <h3>Recruit Members:</h3>
     <ul>
         {{#if heroes}}
             {{#each heroes }}
