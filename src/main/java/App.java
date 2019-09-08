@@ -50,10 +50,22 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfSquadToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
             Squad foundSquad = squadDao.findById(idOfSquadToFind);
+            List<Hero> heroesInSquad = squadDao.getAllHeroesInSquad(idOfSquadToFind);
             List<Hero> heroes = heroDao.getAll();
+            model.put("heroesInSquad", heroesInSquad);
             model.put("heroes", heroes);
             model.put("squad", foundSquad); //add it to model for template to display
             return new ModelAndView(model , "squad-details.hbs"); //individual task page.
+        }, new HandlebarsTemplateEngine());
+
+        get("/squads/:id/add/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int squadId = Integer.parseInt(req.params("id"));
+            int heroId = Integer.parseInt(req.params("id"));
+            heroDao.assignSquad(heroId,squadId);
+            List<Squad> squads = squadDao.getAll();
+            model.put("squads", squads);
+            return new ModelAndView(model , "squads.hbs"); //individual task page.
         }, new HandlebarsTemplateEngine());
 
 

@@ -5,6 +5,15 @@
     <p>Objective: {{squad.objective}}</p>
 
     <h1>MEMBERS:</h1>
+    <ul>
+        {{#if heroesInSquad}}
+            {{#each heroesInSquad }}
+                <li><a><b>{{ name }}</b></a> - Overall: {{ overallRating }} </li>
+            {{/each}}
+        {{else}}
+            <li>No Members Yet!</li>
+        {{/if}}
+    </ul>
 
 
 
@@ -17,7 +26,7 @@
     <ul>
         {{#if heroes}}
             {{#each heroes }}
-            <li><a><b>{{ name }}</b></a> - Overall: {{ overallRating }}</li>
+            <li><a><b>{{ name }}</b></a> - Overall: {{ overallRating }} <a href="/squads/{{squad.id}}/add/{{id}}"><button>Add to {{squad.name}}</button></a></li>
             {{/each}}
         {{else}}
             <li>No Members Yet!</li>
