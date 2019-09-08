@@ -4,9 +4,11 @@
 
     {{#if squads}}
         {{#each squads }}
-            <p><b>{{ name }}</b>:<br>
-            <p>Objective: {{ objective }}</p>
-                <a href="/squads/{{id}}">View Members</a></p>
+            <div class="card">
+                <img src="/images/squads/{{id}}.jpeg">
+                <b>{{ name }}</b><br>
+                <p><b>Mission: </b>{{ objective }}</p>
+                <a href="/squads/{{id}}">View Members</a></div>
         {{/each}}
     {{else}}
         <p>No Squads Yet!</p>
