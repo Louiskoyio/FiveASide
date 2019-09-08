@@ -1,18 +1,27 @@
+
 {{#partial "content"}}
 
     <h1>{{squad.name}}</h1>
 
     <p>Objective: {{squad.objective}}</p>
 
-    <h3>MEMBERS:</h3>
+    <h4>Members:</h4>
 
-        {{#if heroesInSquad}}
+    <div class="heroes-container">
+
+    {{#if heroesInSquad}}
             {{#each heroesInSquad }}
                 <div class="card">
                     <a><b>{{ name }}</b></a>
+                    <!--style="display: -webkit-flex; -webkit-flex-direction: row; display: flex;flex-direction: row;"-->
                     <div class="card-body">
-                        <div><img src="/images/heroes/default.png"></div>
-                        <div>Overall: {{ overallRating }} <a href="/squads/{{squad.id}}/drop/{{id}}"><button class="btn btn-danger">Drop From squad</button></a></div>
+                        <div><img class="avatar" src="/images/heroes/default.png"></div>
+                        <div>
+                            Overall: {{ overallRating }}<br>
+                            Special Power: {{ specialPower }}<br>
+                            Weakness: {{ weakness }}<br>
+                            <a href="/squads/{{squad.id}}/drop/{{id}}"><button class="btn btn-danger">Drop From squad</button></a>
+                        </div>
                     </div>
 
                 </div>
@@ -21,7 +30,7 @@
             <p>No Members Yet!</p>
         {{/if}}
 
-
+    </div>
 
 
 
@@ -47,3 +56,33 @@
 {{/partial }}
 
 {{> layout.hbs}}
+
+
+<style>
+
+
+.heroes-container{
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+
+}
+.card{
+    margin:20px;
+    padding:20px;
+    width:350px;
+    font-size:12px;
+}
+
+.card-body{
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+}
+.avatar{
+padding-right:20px;
+height:80px;
+}
+</style>
