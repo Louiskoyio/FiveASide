@@ -6,18 +6,23 @@
 
     <h1>MEMBERS:</h1>
 
+
+
+
+
+{{/partial}}
+
+{{#partial "footer-content"}}
+
     <ul>
         {{#if heroes}}
             {{#each heroes }}
-                <li><a><b>{{ heroes.name }}</b></a> - Overall: {{ heroes.overallRating }}/li>
+            <li><a><b>{{ name }}</b></a> - Overall: {{ overallRating }}</li>
             {{/each}}
         {{else}}
             <li>No Members Yet!</li>
         {{/if}}
     </ul>
-
-
-
-{{/partial}}
+{{/partial }}
 
 {{> layout.hbs}}

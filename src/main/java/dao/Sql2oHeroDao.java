@@ -12,7 +12,7 @@ public class Sql2oHeroDao implements HeroDao {
 
     @Override
     public void add(Hero hero) {
-        String sql = "INSERT INTO heroes (name,age,special_power,weakness,overall_rating) VALUES (:name,:age,:specialPower,:weakness,:overallRating)"; //raw sql
+        String sql = "INSERT INTO heroes (name,age,special_power,weakness,squad_id,overall_rating) VALUES (:name,:age,:specialPower,:weakness,:squadId, :overallRating)"; //raw sql
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
                     .bind(hero)
@@ -20,7 +20,6 @@ public class Sql2oHeroDao implements HeroDao {
                     .executeUpdate() //run it all
                     .getKey(); //int id is now the row number (row “key”) of db
             hero.setId(id);
-            hero.setSquadId(0);
         } catch (Sql2oException ex) {
             System.out.println(ex); //oops we have an error!
         }

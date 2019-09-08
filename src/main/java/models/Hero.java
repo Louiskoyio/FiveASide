@@ -12,7 +12,7 @@ public class Hero {
     private int squadId;
 
 
-    public Hero(String name, int age, String specialPower, String weakness, int overallRating, int squadId) {
+    public Hero(String name, int age, String specialPower, String weakness, int squadId  , int overallRating) {
         this.name = name;
         this.age = age;
         this.specialPower = specialPower;
