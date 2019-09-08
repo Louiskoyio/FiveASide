@@ -15,3 +15,6 @@ CREATE TABLE IF NOT EXISTS squads (
   name VARCHAR,
   objective VARCHAR
 );
+
+INSERT INTO squads (name, objective) VALUES ('Messi-Griezmann-Suarez', 'Deliver the UEFA Champions League');
+INSERT INTO squads (name, objective) VALUES ('Becker-Matip-Virgil', 'Defend the UEFA Champions League');

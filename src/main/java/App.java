@@ -3,6 +3,7 @@ import dao.Sql2oHeroDao;
 import dao.Sql2oSquadDao;
 import models.Hero;
 import dao.Sql2oHeroDao;
+import models.Squad;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -27,6 +28,14 @@ public class App {
             List<Hero> heroes = heroDao.getAll();
             model.put("heroes", heroes);
             return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        get("/squads", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Squad> squads = squadDao.getAll();
+            model.put("squads", squads);
+            return new ModelAndView(model, "squads.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/heroes/new", (req, res) -> {

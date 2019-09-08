@@ -15,7 +15,8 @@ public class Sql2oHeroDao implements HeroDao {
         String sql = "INSERT INTO heroes (name,age,special_power,weakness,overall_rating) VALUES (:name,:age,:specialPower,:weakness,:overallRating)"; //raw sql
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
-                    .bind(hero) //map my argument onto the query so we can use information from it
+                    .bind(hero)
+                    .throwOnMappingFailure(false)
                     .executeUpdate() //run it all
                     .getKey(); //int id is now the row number (row “key”) of db
             hero.setId(id);
@@ -29,7 +30,7 @@ public class Sql2oHeroDao implements HeroDao {
     public List<Hero> getAll() {
         try(Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM heroes") //raw sql
-                    .executeAndFetch(Hero.class); //fetch a list
+                    .throwOnMappingFailure(false).executeAndFetch(Hero.class); //fetch a list
         }
     }
 
@@ -38,6 +39,7 @@ public class Sql2oHeroDao implements HeroDao {
         try(Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM heroes WHERE id = :id")
                     .addParameter("id", id) //key/value pair, key must match above
+                    .throwOnMappingFailure(false)
                     .executeAndFetchFirst(Hero.class); //fetch an individual item
         }
     }
@@ -51,6 +53,7 @@ public class Sql2oHeroDao implements HeroDao {
             con.createQuery(sql)
                     .addParameter("id", id)
                     .addParameter("squadId", newSquadId)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
         } catch (Sql2oException ex) {
             System.out.println("SQUAD NOT ASSIGNED:"+ex);

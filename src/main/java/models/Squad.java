@@ -4,11 +4,9 @@ import java.util.ArrayList;
 
 public class Squad {
     private int id;
-
-
     private String name;
     private String objective;
-    private static ArrayList<Hero> instances = new ArrayList<>();
+
 
     public Squad(String name, String objective) {
         this.name = name;
@@ -24,6 +22,6 @@ public class Squad {
 
     public String getObjective() { return objective; }
 
-    public static ArrayList<Hero> getInstances() { return instances; }
+
 
 }

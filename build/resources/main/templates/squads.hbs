@@ -1,0 +1,16 @@
+{{#partial "content"}}
+
+    <h1>SELECT SQUAD</h1>
+
+    {{#if squads}}
+        {{#each squads }}
+            <p><b>{{ name }}</b>:<br>
+            <p>Objective: {{ objective }}</p>
+                <a href="/heroes/{{id}}">View Members</a></p>
+        {{/each}}
+    {{else}}
+        <p>No Squads Yet!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

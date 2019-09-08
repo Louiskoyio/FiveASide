@@ -13,22 +13,24 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oHeroDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oHeroDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/models/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/models/Hero.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/models/Squad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/models/Squad.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/dao/Sql2oHeroDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/dao/Sql2oHeroDaoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/models/HeroTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/models/HeroTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/db/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/db/create.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/hero-form.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/hero-form.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/index.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/layout.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/squads.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/squads.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oHeroDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oHeroDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oSquadDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oSquadDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SquadDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SquadDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Squad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Squad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hero-form.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hero-form.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/squads.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/squads.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/dao/Sql2oHeroDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/Sql2oHeroDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dao/Sql2oSquadDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/Sql2oSquadDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/models/HeroTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/HeroTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
