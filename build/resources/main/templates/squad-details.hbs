@@ -5,15 +5,21 @@
     <p>Objective: {{squad.objective}}</p>
 
     <h3>MEMBERS:</h3>
-    <ul>
+
         {{#if heroesInSquad}}
             {{#each heroesInSquad }}
-                <li><a><b>{{ name }}</b></a> - Overall: {{ overallRating }} <a href="/squads/{{squad.id}}/drop/{{id}}"><button>Drop From squad</button></a></li>
+                <div class="card">
+                    <a><b>{{ name }}</b></a>
+                    <div class="card-body">
+                        <div><img src="/images/heroes/default.png"></div>
+                        <div>Overall: {{ overallRating }} <a href="/squads/{{squad.id}}/drop/{{id}}"><button class="btn btn-danger">Drop From squad</button></a></div>
+                    </div>
+
+                </div>
             {{/each}}
         {{else}}
-            <li>No Members Yet!</li>
+            <p>No Members Yet!</p>
         {{/if}}
-    </ul>
 
 
 
@@ -22,16 +28,22 @@
 {{/partial}}
 
 {{#partial "footer-content"}}
-    <h3>Recruit Members:</h3>
-    <ul>
+    <h4>Recruit Members:</h4>
+    <table>
+        <thead>
+        <th>Name</th>
+        <th>Overall</th>
+        </thead>
         {{#if heroes}}
             {{#each heroes }}
-            <li><a><b>{{ name }}</b></a> - Overall: {{ overallRating }} <a href="/squads/{{squad.id}}/add/{{id}}"><button>Add to {{squad.name}}</button></a></li>
+            <tr>
+                <td><a><b>{{ name }}</b></a></td><td>{{ overallRating }}</td> <td><a href="/squads/{{squad.id}}/add/{{id}}"><button class="btn btn-primary">Add to {{squad.name}}</button></a></td>
+            </tr>
             {{/each}}
         {{else}}
-            <li>No Members Yet!</li>
+            <p>No Members Yet!</p>
         {{/if}}
-    </ul>
+    </table>
 {{/partial }}
 
 {{> layout.hbs}}
