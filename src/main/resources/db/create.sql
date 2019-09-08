@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS heroes (
  );
 
 CREATE TABLE IF NOT EXISTS squads (
-  id int PRIMARY KEY auto_increment,
+  squad_id int PRIMARY KEY auto_increment,
   name VARCHAR,
   objective VARCHAR
 );

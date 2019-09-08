@@ -11,7 +11,7 @@ public class Sql2oHeroDaoTest {
     private Connection conn; //must be sql2o class conn
 
     public Hero createTestHero(){
-        return new Hero("Batman",23,"Wealth","bats", 90,5);
+        return new Hero("Batman",23,"Wealth","bats", 1,98);
     }
     @BeforeEach
     public void setUp() throws Exception {
