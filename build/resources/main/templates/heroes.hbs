@@ -1,0 +1,16 @@
+{{#partial "content"}}
+
+    <h1>HEROES</h1>
+
+    {{#if heroes}}
+        {{#each heroes }}
+            <p><b>{{ name }}</b>:<br>
+            <p>Overall: {{ overallRating }}</p>
+            <a href="/heroes/{{id}}">View Hero</a></p>
+        {{/each}}
+    {{else}}
+        <p>No Heroes Yet!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

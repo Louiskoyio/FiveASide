@@ -16,5 +16,8 @@ CREATE TABLE IF NOT EXISTS squads (
   objective VARCHAR
 );
 
+
+INSERT INTO heroes (name,age,special_power,weakness,squad_id,overall_rating) VALUES ('The Flash',46, 'Speed','bananas',1,80);
+INSERT INTO heroes (name,age,special_power,weakness,squad_id,overall_rating) VALUES ('Oliver "Green Arrow" Queen',30, 'Arrows','Mirakuru Soldiers',1,87);
 INSERT INTO squads (name, objective) VALUES ('Messi-Griezmann-Suarez', 'Deliver the UEFA Champions League');
 INSERT INTO squads (name, objective) VALUES ('Becker-Matip-Virgil', 'Defend the UEFA Champions League');

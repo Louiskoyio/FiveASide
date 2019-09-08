@@ -1,0 +1,23 @@
+{{#partial "content"}}
+
+    <h1>{{squad.name}}</h1>
+
+    <p>Objective: {{squad.objective}}</p>
+
+    <h1>MEMBERS:</h1>
+
+    <ul>
+        {{#if heroes}}
+            {{#each heroes }}
+                <li><a><b>{{ heroes.name }}</b></a> - Overall: {{ heroes.overallRating }}/li>
+            {{/each}}
+        {{else}}
+            <li>No Members Yet!</li>
+        {{/if}}
+    </ul>
+
+
+
+{{/partial}}
+
+{{> layout.hbs}}

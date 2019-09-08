@@ -19,7 +19,8 @@ public class Sql2oSquadDao implements SquadDao{
         String sql = "INSERT INTO squads (name,objective) VALUES (:name,:objective)"; //raw sql
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
-                    .bind(squad) //map my argument onto the query so we can use information from it
+                    .bind(squad)
+                    .throwOnMappingFailure(false)//map my argument onto the query so we can use information from it
                     .executeUpdate() //run it all
                     .getKey(); //int id is now the row number (row “key”) of db
             squad.setId(id);
@@ -31,8 +32,9 @@ public class Sql2oSquadDao implements SquadDao{
     @Override
     public List<Hero> getAllHeroesInSquad(int squadId) {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM tasks WHERE categoryId = :categoryId")
-                    .addParameter("categoryId", squadId)
+            return con.createQuery("SELECT * FROM heroes WHERE squad_id = :squadId")
+                    .addParameter("squadId", squadId)
+                    .throwOnMappingFailure(false)
                     .executeAndFetch(Hero.class);
         }
     }
@@ -41,7 +43,19 @@ public class Sql2oSquadDao implements SquadDao{
     public List<Squad> getAll() {
         try(Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM squads") //raw sql
+                    .throwOnMappingFailure(false)
                     .executeAndFetch(Squad.class); //fetch a list
         }
     }
+
+    @Override
+    public Squad findById(int id) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM squads WHERE id = :id")
+                    .addParameter("id", id) //key/value pair, key must match above
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(Squad.class); //fetch an individual item
+        }
+    }
+
 }

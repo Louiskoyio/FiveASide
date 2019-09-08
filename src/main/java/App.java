@@ -31,11 +31,31 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
+
         get("/squads", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Squad> squads = squadDao.getAll();
             model.put("squads", squads);
             return new ModelAndView(model, "squads.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/heroes", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Hero> heroes = heroDao.getAll();
+            model.put("heroes", heroes);
+            return new ModelAndView(model, "heroes.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squads/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            Map<String, Object> heroModel = new HashMap<>();
+            int idOfSquadToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
+            Squad foundSquad = squadDao.findById(idOfSquadToFind);
+            int foundSquadId = foundSquad.getId();
+            List<Hero> squadMembers = squadDao.getAllHeroesInSquad(foundSquadId);
+            heroModel.put("heroes", squadMembers);
+            model.put("squad", foundSquad); //add it to model for template to display
+            return new ModelAndView(model, "squad-details.hbs"); //individual task page.
         }, new HandlebarsTemplateEngine());
 
         get("/heroes/new", (req, res) -> {

@@ -14,5 +14,7 @@ public interface SquadDao {
     // CREATE
     void add(Squad squad);
 
+    Squad findById(int id);
+
 
 }
