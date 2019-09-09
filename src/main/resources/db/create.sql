@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS squads (
 );
 
 
+UPDATE squads SET objective = 'Fight Super Crime' WHERE id = 2;
+
 
 
 /*
