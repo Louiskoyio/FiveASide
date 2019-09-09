@@ -1,7 +1,5 @@
 package models;
 
-import java.util.ArrayList;
-
 public class Squad {
     private int id;
     private String name;

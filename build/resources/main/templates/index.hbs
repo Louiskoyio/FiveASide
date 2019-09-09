@@ -1,14 +1,17 @@
 {{#partial "content"}}
 
-    <h1> select a squad and assemble your heroes !</h1>
+    <div class="container">
+        <!--begin main template-->
+        <div class="page-header">
+            <img src="/images/heroes.jpg" width="70%" alt="https://unsplash.com/search/task?photo=Lh_bn9SgRSY">
+            <h1>Welcome to HEROES!<small>Let the battle begin!</small></h1>
+            <a href="/squads"><button>Select a Squad</button></a>
+        </div>
+        <h1> select a squad and assemble your heroes !</h1>
+    </div>
 
-<!--    {{#if heroes}}
-        {{#each heroes }}
-            <p><b>{{ name }}</b> - <a href="/heroes/{{id}}">View Hero</a></p>
-        {{/each}}
-    {{else}}
-        <p>No Heroes!</p>
-    {{/if}}-->
+
+
 {{/partial}}
 
 {{> layout.hbs}}

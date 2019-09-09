@@ -1,8 +1,8 @@
 
 {{#partial "content"}}
 
-    <h1>{{squad.name}}</h1>
-
+   <div style="display: -webkit-flex;-webkit-flex-direction: row;display: flex;flex-direction: row;"><img class="squad-logo" src="/images/squads/{{squad.id}}.png"> <h1>{{squad.name}}</h1>
+   </div>
     <p>Objective: {{squad.objective}}</p>
 
     <h4>Members:</h4>
@@ -15,12 +15,17 @@
                     <a><b>{{ name }}</b></a>
                     <!--style="display: -webkit-flex; -webkit-flex-direction: row; display: flex;flex-direction: row;"-->
                     <div class="card-body">
-                        <div><img class="avatar" src="/images/heroes/default.png"></div>
+                        <div><img class="avatar" src="/images/heroes/{{id}}.jpeg"></div>
                         <div>
-                            Overall: {{ overallRating }}<br>
-                            Special Power: {{ specialPower }}<br>
-                            Weakness: {{ weakness }}<br>
+                            <table class="table-striped">
+                                <tr><td><b>Overall</b></td><td>{{ overallRating }}</td></tr>
+                                <tr><td><b>Special Power</b></td><td>{{ specialPower }}</td></tr>
+                                <tr><td><b>Weakness</b></td><td>{{ weakness }}</td></tr>
+                            </table>
+
                             <a href="/squads/{{squad.id}}/drop/{{id}}"><button class="btn btn-danger">Drop From squad</button></a>
+
+
                         </div>
                     </div>
 
@@ -32,12 +37,12 @@
 
     </div>
 
-
+<hr>
 
 {{/partial}}
 
 {{#partial "footer-content"}}
-    <h4>Recruit Members:</h4>
+    <h4>Recruit Members to This Squad:</h4>
     <table>
         <thead>
         <th>Name</th>
@@ -70,8 +75,8 @@
 }
 .card{
     margin:20px;
-    padding:20px;
-    width:350px;
+    padding:10px;
+    width:500px;
     font-size:12px;
 }
 
@@ -83,6 +88,30 @@
 }
 .avatar{
 padding-right:20px;
-height:80px;
+height:200px;
+width:200px;
+}
+
+.squad-logo{
+height: 50px;
+weight: 50px;
+}
+
+.btn{
+height:40px;
+font-size:12px;
+width:100%;
+}
+
+.table-striped{
+margin:20px;
+width:200px;
+}
+td{
+margin:10px;
+}
+table{
+font-size:12px;
 }
 </style>
+
