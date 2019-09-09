@@ -16,12 +16,11 @@ CREATE TABLE IF NOT EXISTS squads (
   objective VARCHAR
 );
 
-UPDATE heroes SET id = 9 WHERE id = 240;
-DELETE FROM heroes WHERE id > 240;
 
 
 
 /*
+UPDATE squads SET id = 3 WHERE id = 161;
 INSERT INTO heroes (name,age,special_power,weakness,squad_id,overall_rating) VALUES ('The Flash',46, 'Speed','bananas',1,80);
 INSERT INTO heroes (name,age,special_power,weakness,squad_id,overall_rating) VALUES ('Oliver "Green Arrow" Queen',30, 'Arrows','Mirakuru Soldiers',1,87);
 INSERT INTO squads (name, objective) VALUES ('Messi-Griezmann-Suarez', 'Deliver the UEFA Champions League');

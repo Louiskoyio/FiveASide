@@ -1,7 +1,7 @@
 {{#partial "content"}}
 
-    <div style="background:#dee0e0; padding:10px;"> <h5>SQUADS</h5></div>
-<div class="squads-container">
+    <div style="background:#dee0e0; padding:10px;font-family: 'Patua One', cursive;"> <h5>SQUADS</h5></div>
+<div class="row squads-container">
     {{#if squads}}
         {{#each squads }}
             <div class="card">
@@ -26,13 +26,11 @@
 
 <style>
 
-
+b{font-family: 'Patua One', cursive;}
+p{font-family: 'Wallpoet', cursive; font-size:15px;}
 .squads-container{
-    display: -webkit-flex;
-    -webkit-flex-direction: row;
-    display: flex;
-    flex-direction: row;
 
+padding: 50px;
 }
 .card{
     margin:20px;
