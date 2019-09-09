@@ -13,7 +13,6 @@
             {{#each heroesInSquad }}
                 <div class="card">
                     <a><b>{{ name }}</b></a>
-                    <!--style="display: -webkit-flex; -webkit-flex-direction: row; display: flex;flex-direction: row;"-->
                     <div class="card-body">
                         <div><img class="avatar" src="/images/heroes/{{id}}.jpeg"></div>
                         <div>
@@ -58,16 +57,14 @@
                                 <tr><td><b>Weakness</b></td><td>{{ weakness }}</td></tr>
                             </table>
 
-                            <a href="/squads/{{squad.id}}/add/{{id}}"><button class="btn btn-primary">Add to {{squad.name}}</button></a>
+                            <a href="/squads/{{squad.id}}/add/{{id}}"><button class="btn btn-success">Add to {{squad.name}}</button></a>
 
 
                         </div>
                     </div>
 
                 </div>
-<!--            <tr>
-                <td><a><b>{{ name }}</b></a></td><td>{{ overallRating }}</td> <td></td>
-            </tr>-->
+
             {{/each}}
         {{else}}
             <p>No Heroes Found!</p>

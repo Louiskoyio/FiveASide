@@ -1,16 +1,72 @@
 {{#partial "content"}}
-
-    <h1>HEROES</h1>
-
+    <div style="background:#dee0e0; padding:10px;"> <h5>HEROES</h5></div>
+    <div class="row heroes-container">
     {{#if heroes}}
         {{#each heroes }}
-            <p><b>{{ name }}</b>:<br>
-            <p>Overall: {{ overallRating }}</p>
-            <a href="/heroes/{{id}}">View Hero</a></p>
+            <div class="card">
+                <a><b>{{ name }}</b></a>
+                <div class="card-body">
+                    <div><img class="avatar" src="/images/heroes/{{id}}.jpeg"></div>
+                    <div>
+                        <table class="table-striped">
+                            <tr><td><b>Overall</b></td><td>{{ overallRating }}</td></tr>
+                            <tr><td><b>Special Power</b></td><td>{{ specialPower }}</td></tr>
+                            <tr><td><b>Weakness</b></td><td>{{ weakness }}</td></tr>
+                        </table>
+
+                        <a href="/squads/{{squad.id}}/drop/{{id}}"><button class="btn btn-danger">Drop From squad</button></a>
+
+
+                    </div>
+                </div>
+
+            </div>
         {{/each}}
     {{else}}
         <p>No Heroes Yet!</p>
     {{/if}}
+    </div>
 {{/partial}}
 
 {{> layout.hbs}}
+
+<style>
+    .heroes-container{
+    padding: 50px;
+}
+
+h4{
+text-align:center;
+color: white;
+}
+.card{
+    margin:20px;
+    padding:10px;
+    width:500px;
+    font-size:12px;
+}
+
+.card-body{
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+}
+.avatar{
+padding-right:20px;
+height:200px;
+width:200px;
+}
+
+.squad-logo{
+height: 50px;
+weight: 50px;
+}
+
+.btn{
+height:40px;
+font-size:12px;
+width:100%;
+}
+
+</style>

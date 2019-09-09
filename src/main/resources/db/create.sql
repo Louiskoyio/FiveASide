@@ -3,11 +3,11 @@ SET MODE PostgreSQL;
 CREATE TABLE IF NOT EXISTS heroes (
  id int PRIMARY KEY auto_increment,
  name VARCHAR,
- age NUMERIC,
+ age INTEGER,
  special_power VARCHAR,
  weakness VARCHAR,
- squad_id NUMERIC,
- overall_rating NUMERIC
+ squad_id INTEGER,
+ overall_rating INTEGER
  );
 
 CREATE TABLE IF NOT EXISTS squads (
@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS squads (
   objective VARCHAR
 );
 
-
-Delete from heroes  WHERE id > 10;
+UPDATE heroes SET id = 9 WHERE id = 240;
+DELETE FROM heroes WHERE id > 240;
 
 
 
