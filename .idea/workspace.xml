@@ -11,10 +11,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/db/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/db/create.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/layout.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/squads.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/squads.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/squad-details.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/squad-details.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/squads.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/squads.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/squad-details.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/squad-details.hbs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

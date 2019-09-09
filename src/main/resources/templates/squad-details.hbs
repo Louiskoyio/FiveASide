@@ -1,13 +1,13 @@
 
 {{#partial "content"}}
 
-   <div style="display: -webkit-flex;-webkit-flex-direction: row;display: flex;flex-direction: row;"><img class="squad-logo" src="/images/squads/{{squad.id}}.png"> <h1>{{squad.name}}</h1>
+   <div style="display: -webkit-flex;-webkit-flex-direction: row;display: flex;flex-direction: row; background:#dee0e0;"><img class="squad-logo" src="/images/squads/{{squad.id}}.png"> <h1>{{squad.name}}</h1>
    </div>
-    <p>Objective: {{squad.objective}}</p>
+    <p style="background:#ededed; padding-left:50px;">Objective: {{squad.objective}}</p>
 
     <h4>Members:</h4>
 
-    <div class="heroes-container">
+    <div class="row heroes-container">
 
     {{#if heroesInSquad}}
             {{#each heroesInSquad }}
@@ -43,21 +43,36 @@
 
 {{#partial "footer-content"}}
     <h4>Recruit Members to This Squad:</h4>
-    <table>
-        <thead>
-        <th>Name</th>
-        <th>Overall</th>
-        </thead>
+    <div class="row heroes-container">
         {{#if heroes}}
             {{#each heroes }}
-            <tr>
-                <td><a><b>{{ name }}</b></a></td><td>{{ overallRating }}</td> <td><a href="/squads/{{squad.id}}/add/{{id}}"><button class="btn btn-primary">Add to {{squad.name}}</button></a></td>
-            </tr>
+                <div class="card">
+                    <a><b>{{ name }}</b></a>
+                    <!--style="display: -webkit-flex; -webkit-flex-direction: row; display: flex;flex-direction: row;"-->
+                    <div class="card-body">
+                        <div><img class="avatar" src="/images/heroes/{{id}}.jpeg"></div>
+                        <div>
+                            <table class="table-striped">
+                                <tr><td><b>Overall</b></td><td>{{ overallRating }}</td></tr>
+                                <tr><td><b>Special Power</b></td><td>{{ specialPower }}</td></tr>
+                                <tr><td><b>Weakness</b></td><td>{{ weakness }}</td></tr>
+                            </table>
+
+                            <a href="/squads/{{squad.id}}/add/{{id}}"><button class="btn btn-primary">Add to {{squad.name}}</button></a>
+
+
+                        </div>
+                    </div>
+
+                </div>
+<!--            <tr>
+                <td><a><b>{{ name }}</b></a></td><td>{{ overallRating }}</td> <td></td>
+            </tr>-->
             {{/each}}
         {{else}}
-            <p>No Members Yet!</p>
+            <p>No Heroes Found!</p>
         {{/if}}
-    </table>
+    </div>
 {{/partial }}
 
 {{> layout.hbs}}
@@ -67,11 +82,12 @@
 
 
 .heroes-container{
-    display: -webkit-flex;
-    -webkit-flex-direction: row;
-    display: flex;
-    flex-direction: row;
+    padding: 50px;
+}
 
+h4{
+text-align:center;
+color: white;
 }
 .card{
     margin:20px;
