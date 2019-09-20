@@ -1,0 +1,130 @@
+
+{{#partial "content"}}
+
+   <div style="display: -webkit-flex;-webkit-flex-direction: row;display: flex;flex-direction: row; background:#dee0e0;font-family: 'Patua One', cursive;"><img class="squad-logo" src="/images/squads/{{squad.id}}.png"> <h1>{{squad.name}}</h1>
+   </div>
+    <p style="background:#ededed; padding-left:50px;font-family: 'Wallpoet', cursive;">Objective: {{squad.objective}}</p>
+
+    <h4>Members:</h4>
+
+    <div class="row player-container">
+
+    {{#if playerInSquad}}
+            {{#each playerInSquad }}
+                <div class="card">
+                    <a><b>{{ name }}</b></a>
+                    <div class="card-body">
+                        <div><img class="avatar" src="/images/player/{{id}}.jpeg"></div>
+                        <div>
+                            <table class="table-striped">
+                                <tr><td><b>Overall</b></td><td>{{ overallRating }}</td></tr>
+                                <tr><td><b>Special Power</b></td><td>{{ specialPower }}</td></tr>
+                                <tr><td><b>Weakness</b></td><td>{{ weakness }}</td></tr>
+                            </table>
+
+                            <a href="/squads/{{squad.id}}/drop/{{id}}"><button class="btn btn-danger">Drop From squad</button></a>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            {{/each}}
+        {{else}}
+            <p>No Members Yet!</p>
+        {{/if}}
+
+    </div>
+
+<hr>
+
+{{/partial}}
+
+{{#partial "footer-content"}}
+    <h4>Recruit Members to This Squad:</h4>
+    <div class="row player-container">
+        {{#if player}}
+            {{#each player }}
+                <div class="card">
+                    <a><b>{{ name }}</b></a>
+                    <!--style="display: -webkit-flex; -webkit-flex-direction: row; display: flex;flex-direction: row;"-->
+                    <div class="card-body">
+                        <div><img class="avatar" src="/images/player/{{id}}.jpeg"></div>
+                        <div>
+                            <table class="table-striped">
+                                <tr><td><b>Overall</b></td><td>{{ overallRating }}</td></tr>
+                                <tr><td><b>Special Power</b></td><td>{{ specialPower }}</td></tr>
+                                <tr><td><b>Weakness</b></td><td>{{ weakness }}</td></tr>
+                            </table>
+
+                            <a href="/squads/{{squad.id}}/add/{{id}}"><button class="btn btn-success">Add to {{squad.name}}</button></a>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            {{/each}}
+        {{else}}
+            <p>No Players Found!</p>
+        {{/if}}
+    </div>
+{{/partial }}
+
+{{> layout.hbs}}
+
+
+<style>
+
+
+.player-container{
+    padding: 50px;
+}
+
+h4{
+text-align:center;
+padding:20px;
+}
+.card{
+    margin:20px;
+    padding:10px;
+    width:500px;
+    font-size:12px;
+}
+
+.card-body{
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+}
+.avatar{
+padding-right:20px;
+height:200px;
+width:200px;
+}
+
+.squad-logo{
+height: 50px;
+weight: 50px;
+}
+
+.btn{
+height:40px;
+font-size:12px;
+width:100%;
+}
+
+.table-striped{
+margin:20px;
+width:200px;
+}
+td{
+margin:10px;
+}
+table{
+font-size:12px;
+}
+</style>
+

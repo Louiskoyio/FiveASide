@@ -1,6 +1,6 @@
 package dao;
 
-import models.Hero;
+import models.Player;
 import models.Squad;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -30,12 +30,12 @@ public class Sql2oSquadDao implements SquadDao{
     }
 
     @Override
-    public List<Hero> getAllHeroesInSquad(int squadId) {
+    public List<Player> getAllPlayersInSquad(int squadId) {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM heroes WHERE squad_id = :squadId")
+            return con.createQuery("SELECT * FROM players WHERE squad_id = :squadId")
                     .addParameter("squadId", squadId)
                     .throwOnMappingFailure(false)
-                    .executeAndFetch(Hero.class);
+                    .executeAndFetch(Player.class);
         }
     }
 
@@ -49,10 +49,10 @@ public class Sql2oSquadDao implements SquadDao{
     }
 
     @Override
-    public Squad findById(int id) {
+    public Squad findById(int squad_id) {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM squads WHERE id = :id")
-                    .addParameter("id", id) //key/value pair, key must match above
+            return con.createQuery("SELECT * FROM squads WHERE squad_id = :squad_id")
+                    .addParameter("squad_id", squad_id) //key/value pair, key must match above
                     .throwOnMappingFailure(false)
                     .executeAndFetchFirst(Squad.class); //fetch an individual item
         }

@@ -1,12 +1,12 @@
 package dao;
-import models.Hero;
+import models.Player;
 import models.Squad;
 
 import java.util.List;
 
 public interface SquadDao {
 
-    List<Hero> getAllHeroesInSquad(int squadId);
+    List<Player> getAllPlayersInSquad(int squadId);
 
     // LIST
     List<Squad> getAll();

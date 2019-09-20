@@ -1,0 +1,29 @@
+{{#partial "content"}}
+
+    <h1>Create a Player!</h1>
+
+        <form action="/player" method="post">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text"><br>
+
+            <label for="age">Age</label>
+            <input id="age" name="age" type="text"><br>
+
+            <label for="specialPower">Special Power</label>
+            <input id="specialPower" name="specialPower" type="text"><br>
+
+            <label for="weaknesses">Weakness</label>
+            <input id="weaknesses" name="weaknesses" type="text"><br>
+
+            <label for="overallRating">Overall Rating</label>
+            <input id="overallRating" name="overallRating" type="text"><br>
+
+            <label for="squadId">Squad</label>
+            <input id="squadId" name="squadId" type="text"><br>
+
+
+        <button type="submit" class="btn btn-default">Go!</button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}

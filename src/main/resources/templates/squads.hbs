@@ -1,19 +1,14 @@
 {{#partial "content"}}
 
     <div style="background:#dee0e0; padding:10px;font-family: 'Patua One', cursive;"> <h5>SQUADS</h5></div>
-<div class="row squads-container">
+
+    <div class="row squads-container">
     {{#if squads}}
         {{#each squads }}
-            <div class="card">
-                <div class="card-body">
-                <div><img class="squad-image" src="/images/squads/{{id}}.png"></div>
-                    <div class="squad-detail">
-                        <b>{{ name }}</b><br>
-                        <p><b>Mission: </b>{{ objective }}</p>
-                    </div>
-                </div>
-                <a href="/squads/{{id}}"><button class="btn btn-primary">View Squad</button></a>
-            </div>
+
+            <div class="card"> <a href="/squads/{{id}}"><img class="squad-image" src="/images/squads/{{id}}.png"></a></div>
+
+
         {{/each}}
     {{else}}
         <p>No Squads Yet!</p>
@@ -27,15 +22,18 @@
 <style>
 
 b{font-family: 'Patua One', cursive;}
-p{font-family: 'Wallpoet', cursive; font-size:15px;}
+
 .squads-container{
 
 padding: 50px;
 }
 .card{
-    margin:20px;
+    background:transparent;
+    border:none;
+    margin:30px;
     padding:10px;
-    width:500px;
+    width:auto;
+    height: 100%;
     font-size:15px;
     text-align:center;
 }
@@ -54,6 +52,13 @@ padding: 50px;
 height:200px;
 width:200px;
 
+}
+img{
+transition: 1s ease;
+}
+
+img:hover{
+transform: scale(1.2);
 }
 
 

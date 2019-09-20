@@ -1,26 +1,28 @@
 plugins {
     id 'java'
+    id "com.heroku.sdk.heroku-gradle" version "1.0.4"
 }
 
-group 'com.moringa.heroes'
+group 'com.moringa.fiveaside'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
 }
 
 dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.0.0'
     implementation 'org.junit.jupiter:junit-jupiter-api:5.0.0'
+    compile "gradle.plugin.com.heroku.sdk:heroku-gradle:1.0.4"
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.2'
     compile "com.sparkjava:spark-core:2.6.0"
     compile "com.sparkjava:spark-template-handlebars:2.5.5"
     compile 'org.slf4j:slf4j-simple:1.7.21'
     compile 'org.sql2o:sql2o:1.5.4'
-    compile group: 'com.h2database', name: 'h2', version: '1.4.191'
 }
 
-test {
-    useJUnitPlatform()
-}
+apply plugin: "com.heroku.sdk.heroku-gradle"

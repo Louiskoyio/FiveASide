@@ -1,0 +1,107 @@
+{{#partial "content"}}
+    <div style="background:#dee0e0; padding:10px;font-family: 'Patua One', cursive;"> <h5>PLAYERS</h5></div>
+    <div class="row players-container">
+    {{#if players}}
+        {{#each players }}
+            <div class="card card-transparent">
+                <a><h5 style="font-family: 'Patua One', cursive;text-transform: uppercase;z-index:10000; position:absolute;">{{ name }}</h5></a>
+                <div class="card-body">
+                    <div class="attributes">
+                    <div class="player-attributes" style="font-size:15px;">
+                        <img class="avatar" src="/images/players/{{id}}.png"><br>
+                        <b>Age :</b> {{ age }} <br>
+                        <b>Team :</b> teamname <br>
+                        <b>Position :</b> {{ position }}<br>
+                    </div>
+
+                    <div class="player-attributes">
+                        <table class="table table-condensed">
+                            <tr><td>Overall</td><td style="font-size:20px;"><b>{{ overall_rating }}</b></td></tr>
+                            <tr><td>Attack</td><td style="font-size:18px; text-align:center;"><b>{{ attack }}</b></td></tr>
+                            <tr><td>Defence</td><td style="text-align:center;font-size:18px;"><b>{{ defence }}</b></td></tr>
+                            <tr><td>Passing</td><td style="font-size:18px;text-align:center;"><b>{{ passing }}</b></td></tr>
+                            <tr><td>Chemistry</td><td style="font-size:18px;text-align:center;"><b>{{ chemistry }}</b></td></tr>
+                            <tr><td>Special Trait</td><td  style="font-size:15px;text-align:center;"><b>{{ specialPower }}</b></td></tr>
+                            <tr><td>Weakness</td><td  style="font-size:15px;text-align:center;"><b>{{ weakness }}</b></td></tr>
+                        </table>
+
+                    </div>
+
+                    </div>
+                    <a href="/squads/{{squad.id}}/drop/{{id}}"><button class="btn btn-danger">Drop From squad</button></a>
+
+                </div>
+
+            </div>
+
+        {{/each}}
+    {{else}}
+        <p>No Players Yet!</p>
+    {{/if}}
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
+
+<style>
+    .players-container{
+    padding: 50px;
+}
+
+
+h4{
+text-align:center;
+color: white;
+}
+.card{
+text-transform: uppercase;
+    margin:10px;
+    padding:8px;
+    width:430px;
+    font-size:15px;
+}
+
+.attributes{
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+}
+.avatar{
+    padding:8px;
+padding-right:20px;
+height:200px;
+width:200px;
+}
+
+.squad-logo{
+height: 50px;
+weight: 50px;
+}
+
+.btn{
+font-family: 'Coda', cursive;
+text-transform: uppercase;
+height:60px;
+font-size:18px;
+width:100%;
+}
+
+table{
+
+text-transform: uppercase;
+font-family: 'Coda', cursive;
+font-size:12px;
+width:100%;
+}
+tr{
+padding:0px;
+}
+.player-attributes{
+font-family: 'Coda', cursive;
+padding:5px;
+}
+.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td {
+padding: 6px;
+}
+</style>

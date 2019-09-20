@@ -1,8 +1,8 @@
 
-import dao.Sql2oHeroDao;
+import dao.Sql2oPlayerDao;
 import dao.Sql2oSquadDao;
-import models.Hero;
-import dao.Sql2oHeroDao;
+import models.Player;
+import dao.Sql2oPlayerDao;
 import models.Squad;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
@@ -14,19 +14,30 @@ import java.util.Map;
 import static spark.Spark.*;
 
 public class App {
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567;
+    }
+
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/todolist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
-        Sql2oHeroDao heroDao= new Sql2oHeroDao(sql2o);
+        port(getHerokuAssignedPort());
+        String connectionString = "jdbc:postgresql://localhost:5432/five_a_side"; //connect to todolist, not todolist_test!
+        Sql2o sql2o = new Sql2o(connectionString, "louis", "23Armin23");
+/*        String connectionString = "jdbc:postgresql://ec2-174-129-27-158.compute-1.amazonaws.com:5432/d2qg5l5e2coola";
+        Sql2o sql2o = new Sql2o(connectionString, "epopnniolaxqnq", "ac6a6b613a72352157f516422a043de4abbe264d294405cceb17e982e6007edb");*/
+        Sql2oPlayerDao playerDao= new Sql2oPlayerDao(sql2o);
         Sql2oSquadDao squadDao=new Sql2oSquadDao(sql2o);
 
 
 
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Hero> heroes = heroDao.getAll();
-            model.put("heroes", heroes);
+            List<Player> players = playerDao.getAll();
+            model.put("players", players);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -39,21 +50,21 @@ public class App {
             return new ModelAndView(model, "squads.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/heroes", (req, res) -> {
+        get("/players", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Hero> heroes = heroDao.getAll();
-            model.put("heroes", heroes);
-            return new ModelAndView(model, "heroes.hbs");
+            List<Player> players = playerDao.getAll();
+            model.put("players", players);
+            return new ModelAndView(model, "players.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/squads/:squad_id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfSquadToFind = Integer.parseInt(req.params("squad_id")); //pull id - must match route segment
             Squad foundSquad = squadDao.findById(idOfSquadToFind);
-            List<Hero> heroesInSquad = squadDao.getAllHeroesInSquad(idOfSquadToFind);
-            List<Hero> heroes = heroDao.getAll();
-            model.put("heroesInSquad", heroesInSquad);
-            model.put("heroes", heroes);
+            List<Player> playersInSquad = squadDao.getAllPlayersInSquad(idOfSquadToFind);
+            List<Player> players = playerDao.getAll();
+            model.put("playersInSquad", playersInSquad);
+            model.put("players", players);
             model.put("squad", foundSquad); //add it to model for template to display
             return new ModelAndView(model , "squad-details.hbs"); //individual task page.
         }, new HandlebarsTemplateEngine());
@@ -61,8 +72,8 @@ public class App {
         get("/squads/:squad_id/add/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int squadId = Integer.parseInt(req.params("squad_id"));
-            int heroId = Integer.parseInt(req.params("id"));
-            heroDao.assignSquad(heroId,squadId);
+            int playerId = Integer.parseInt(req.params("id"));
+            playerDao.assignSquad(playerId,squadId);
             List<Squad> squads = squadDao.getAll();
             model.put("squads", squads);
             return new ModelAndView(model , "squads.hbs"); //individual task page.
@@ -71,37 +82,44 @@ public class App {
         get("/squads/:squad_id/drop/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int heroId = Integer.parseInt(req.params("id"));
-            heroDao.dropFromSquad(heroId);
+            playerDao.dropFromSquad(heroId);
             List<Squad> squads = squadDao.getAll();
             model.put("squads", squads);
             return new ModelAndView(model , "squads.hbs"); //individual task page.
         }, new HandlebarsTemplateEngine());
 
 
-        get("/heroes/new", (req, res) -> {
+        get("/players/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "hero-form.hbs");
+            return new ModelAndView(model, "player-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/heroes", (req, res) -> { //URL to make new task on POST route
+        post("/players", (req, res) -> { //URL to make new task on POST route
             Map<String, Object> model = new HashMap<>();
             String name = req.queryParams("name");
             int age =  Integer.parseInt(req.queryParams("age"));
-            String strength = req.queryParams("strength");
+            String special_power = req.queryParams("special_power");
             String weaknesses = req.queryParams("weaknesses");
-            int overallRating = Integer.parseInt(req.queryParams("overallRating"));
-            int squadId = Integer.parseInt(req.queryParams("squadId"));
-            Hero newHero = new Hero(name,age,strength,weaknesses, overallRating, squadId);
-            res.redirect("/");
+            int overall_rating = Integer.parseInt(req.queryParams("overall_rating"));
+            int squad_id = Integer.parseInt(req.queryParams("squad_id"));
+            String position = req.queryParams("position");
+            int attack = Integer.parseInt(req.queryParams("attack"));
+            int defence = Integer.parseInt(req.queryParams("defence"));
+            int chemistry = Integer.parseInt(req.queryParams("chemistry"));
+            int passing = Integer.parseInt(req.queryParams("passing"));
+            int physical = Integer.parseInt(req.queryParams("physical"));
+            Player newPlayer = new Player(name,age,special_power,weaknesses, overall_rating, squad_id,position,attack,defence,chemistry,passing,physical);
+            playerDao.add(newPlayer);
+            res.redirect("/players");
             return null;
         }, new HandlebarsTemplateEngine());
 
-        get("/heroes/:id", (req, res) -> {
+        get("/players/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfTaskToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
-            Hero foundHero = heroDao.findById(idOfTaskToFind); //use it to find task
-            model.put("hero", foundHero); //add it to model for template to display
-            return new ModelAndView(model, "hero-detail.hbs"); //individual task page.
+            Player foundPlayer = playerDao.findById(idOfTaskToFind); //use it to find task
+            model.put("player", foundPlayer); //add it to model for template to display
+            return new ModelAndView(model, "players-detail.hbs"); //individual task page.
         }, new HandlebarsTemplateEngine());
     }
 }

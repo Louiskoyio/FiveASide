@@ -1,31 +1,44 @@
 
 {{#partial "content"}}
 
-   <div style="display: -webkit-flex;-webkit-flex-direction: row;display: flex;flex-direction: row; background:#dee0e0;font-family: 'Patua One', cursive;"><img class="squad-logo" src="/images/squads/{{squad.id}}.png"> <h1>{{squad.name}}</h1>
-   </div>
-    <p style="background:#ededed; padding-left:50px;font-family: 'Wallpoet', cursive;">Objective: {{squad.objective}}</p>
+    <div class="team-info">
+        <img class="squad-logo" src="/images/squads/{{squad.id}}.png">
+        <h1 style="text-transform:uppercase;">{{squad.name}} <small style="text-transform:none;">Objective: {{squad.objective}}</small></h1>
+    </div>
 
-    <h4>Members:</h4>
+    <div class="row player-container">
 
-    <div class="row heroes-container">
 
-    {{#if heroesInSquad}}
-            {{#each heroesInSquad }}
-                <div class="card">
-                    <a><b>{{ name }}</b></a>
+
+    {{#if playersInSquad}}
+            {{#each playersInSquad }}
+                <div class="card card-transparent">
+                    <a><h5 style="font-family: 'Patua One', cursive;text-transform: uppercase;z-index:10000; position:absolute;color:#878787;">{{ name }}</h5></a>
                     <div class="card-body">
-                        <div><img class="avatar" src="/images/heroes/{{id}}.jpeg"></div>
-                        <div>
-                            <table class="table-striped">
-                                <tr><td><b>Overall</b></td><td>{{ overallRating }}</td></tr>
-                                <tr><td><b>Special Power</b></td><td>{{ specialPower }}</td></tr>
-                                <tr><td><b>Weakness</b></td><td>{{ weakness }}</td></tr>
-                            </table>
+                        <div class="attributes">
+                            <div class="player-attributes" style="font-size:15px;">
+                                <img class="avatar" src="/images/players/{{id}}.png"><br>
+                                <b>Age :</b> {{ age }} <br>
+                                <b>Team :</b> teamname <br>
+                                <b>Position :</b> {{ position }}<br>
+                            </div>
 
-                            <a href="/squads/{{squad.id}}/drop/{{id}}"><button class="btn btn-danger">Drop From squad</button></a>
+                            <div class="player-attributes">
+                                <table class="table table-condensed">
+                                    <tr><td>Overall</td><td style="font-size:20px;"><b>{{ overall_rating }}</b></td></tr>
+                                    <tr><td>Attack</td><td style="font-size:18px; text-align:center;"><b>{{ attack }}</b></td></tr>
+                                    <tr><td>Defence</td><td style="text-align:center;font-size:18px;"><b>{{ defence }}</b></td></tr>
+                                    <tr><td>Passing</td><td style="font-size:18px;text-align:center;"><b>{{ passing }}</b></td></tr>
+                                    <tr><td>Chemistry</td><td style="font-size:18px;text-align:center;"><b>{{ chemistry }}</b></td></tr>
+                                    <tr><td>Special Trait</td><td  style="font-size:15px;text-align:center;"><b>{{ specialPower }}</b></td></tr>
+                                    <tr><td>Weakness</td><td  style="font-size:15px;text-align:center;"><b>{{ weakness }}</b></td></tr>
+                                </table>
 
+                            </div>
 
                         </div>
+                        <a href="/squads/{{squad.id}}/drop/{{id}}"><button class="btn btn-danger">Drop From squad</button></a>
+
                     </div>
 
                 </div>
@@ -34,72 +47,99 @@
             <p>No Members Yet!</p>
         {{/if}}
 
-    </div>
-
 <hr>
 
 {{/partial}}
 
 {{#partial "footer-content"}}
     <h4>Recruit Members to This Squad:</h4>
-    <div class="row heroes-container">
-        {{#if heroes}}
-            {{#each heroes }}
-                <div class="card">
-                    <a><b>{{ name }}</b></a>
-                    <!--style="display: -webkit-flex; -webkit-flex-direction: row; display: flex;flex-direction: row;"-->
+    <div class="row player-container">
+        {{#if players}}
+            {{#each players }}
+                <div class="card card-transparent">
+                    <a><h5 style="font-family: 'Patua One', cursive;text-transform: uppercase;z-index:10000; position:absolute;">{{ name }}</h5></a>
                     <div class="card-body">
-                        <div><img class="avatar" src="/images/heroes/{{id}}.jpeg"></div>
-                        <div>
-                            <table class="table-striped">
-                                <tr><td><b>Overall</b></td><td>{{ overallRating }}</td></tr>
-                                <tr><td><b>Special Power</b></td><td>{{ specialPower }}</td></tr>
-                                <tr><td><b>Weakness</b></td><td>{{ weakness }}</td></tr>
-                            </table>
+                        <div class="attributes">
+                            <div class="player-attributes" style="font-size:15px;">
+                                <img class="avatar" src="/images/players/{{id}}.png"><br>
+                                <b>Age :</b> {{ age }} <br>
+                                <b>Team :</b> teamname <br>
+                                <b>Position :</b> {{ position }}<br>
+                            </div>
 
-                            <a href="/squads/{{squad.id}}/add/{{id}}"><button class="btn btn-success">Add to {{squad.name}}</button></a>
+                            <div class="player-attributes">
+                                <table class="table table-condensed">
+                                    <tr><td>Overall</td><td style="font-size:20px;"><b>{{ overall_rating }}</b></td></tr>
+                                    <tr><td>Attack</td><td style="font-size:18px; text-align:center;"><b>{{ attack }}</b></td></tr>
+                                    <tr><td>Defence</td><td style="text-align:center;font-size:18px;"><b>{{ defence }}</b></td></tr>
+                                    <tr><td>Passing</td><td style="font-size:18px;text-align:center;"><b>{{ passing }}</b></td></tr>
+                                    <tr><td>Chemistry</td><td style="font-size:18px;text-align:center;"><b>{{ chemistry }}</b></td></tr>
+                                    <tr><td>Special Trait</td><td  style="font-size:15px;text-align:center;"><b>{{ specialPower }}</b></td></tr>
+                                    <tr><td>Weakness</td><td  style="font-size:15px;text-align:center;"><b>{{ weakness }}</b></td></tr>
+                                </table>
 
+                            </div>
 
                         </div>
+                        <a href="/squads/{{squad.id}}/add/{{id}}"><button class="btn btn-success">add to squad</button></a>
+
                     </div>
 
                 </div>
 
             {{/each}}
         {{else}}
-            <p>No Heroes Found!</p>
+            <p>No Players Found!</p>
         {{/if}}
-    </div>
+    </div> </div>
 {{/partial }}
 
 {{> layout.hbs}}
 
 
 <style>
+.team-info{
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    color:white;
+    font-family: 'Patua One', cursive;
+    margin: 80px;
+}
 
-
-.heroes-container{
+.player-container{
     padding: 50px;
+    padding-top: 0px;
+}
+
+small{
+    font-size:15px;
+    font-family: 'Nunito', sans-serif;
 }
 
 h4{
+text-transform: uppercase;
+color:white;
+font-family: 'Coda', cursive;
 text-align:center;
 padding:20px;
 }
 .card{
-    margin:20px;
-    padding:10px;
-    width:500px;
-    font-size:12px;
+text-transform: uppercase;
+    margin:10px;
+    padding:8px;
+    width:430px;
+    font-size:15px;
 }
-
-.card-body{
+.attributes{
     display: -webkit-flex;
     -webkit-flex-direction: row;
     display: flex;
     flex-direction: row;
 }
 .avatar{
+    padding:8px;
 padding-right:20px;
 height:200px;
 width:200px;
@@ -111,20 +151,31 @@ weight: 50px;
 }
 
 .btn{
-height:40px;
-font-size:12px;
+font-family: 'Coda', cursive;
+text-transform: uppercase;
+height:60px;
+font-size:18px;
 width:100%;
+}
+.player-attributes{
+font-family: 'Coda', cursive;
+padding:5px;
+}
+.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td {
+padding: 6px;
 }
 
 .table-striped{
 margin:20px;
 width:200px;
 }
-td{
-margin:10px;
-}
-table{
+
+.tables{
+font-family: 'Coda', cursive;
+text-align: right;
+text-transform: uppercase;
 font-size:12px;
+color:white;
 }
 </style>
 
